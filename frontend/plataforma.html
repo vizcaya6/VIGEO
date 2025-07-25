@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Vigeo Urban</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body class="platform-body">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="/home/itac/Documentos/VIGEO/frontend/images/Logo.png" alt="Vigeo Urban" class="sidebar-logo">
+      <h3 class="sidebar-title">Dashboard</h3>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-section="inversiones">
+        <span class="nav-icon">📊</span>
+        <span class="nav-text">Mis Inversiones</span>
+      </a>
+      <a href="#" class="nav-item" data-section="planes">
+        <span class="nav-icon">🎯</span>
+        <span class="nav-text">Planes de Inversión</span>
+      </a>
+      <a href="#" class="nav-item" data-section="billetera">
+        <span class="nav-icon">💰</span>
+        <span class="nav-text">Billetera</span>
+      </a>
+      <a href="#" class="nav-item" data-section="oportunidades">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-text">Buscar Oportunidades</span>
+      </a>
+      <a href="#" class="nav-item" data-section="cuenta">
+        <span class="nav-icon">👤</span>
+        <span class="nav-text">Mi Cuenta</span>
+      </a>
+      <a href="#" class="nav-item" data-section="referidos">
+        <span class="nav-icon">👥</span>
+        <span class="nav-text">Referidos</span>
+      </a>
+    </nav>
+    
+    <div class="sidebar-footer">
+      <a href="home.html" class="logout-btn">
+        <span class="nav-icon">🚪</span>
+        <span class="nav-text">Cerrar Sesión</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Contenido Principal -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="platform-header">
+      <div class="header-left">
+        <button class="sidebar-toggle">☰</button>
+        <h1 class="page-title">Mis Inversiones</h1>
+      </div>
+      <div class="header-right">
+        <div class="user-balance">
+          <span class="balance-label">Balance Total:</span>
+          <span class="balance-amount">$45,230.50</span>
+        </div>
+        <div class="user-profile">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Usuario" class="profile-avatar">
+          <span class="profile-name">Carlos Mendoza</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sección: Mis Inversiones -->
+    <section class="content-section active" id="inversiones">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div class="stat-content">
+            <h3 class="stat-value">$45,230</h3>
+            <p class="stat-label">Total Invertido</p>
+            <span class="stat-change positive">+12.5%</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+          <div class="stat-content">
+            <h3 class="stat-value">$5,847</h3>
+            <p class="stat-label">Ganancias</p>
+            <span class="stat-change positive">+8.2%</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🏠</div>
+          <div class="stat-content">
+            <h3 class="stat-value">7</h3>
+            <p class="stat-label">Propiedades</p>
+            <span class="stat-change neutral">Activas</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-content">
+            <h3 class="stat-value">12.8%</h3>
+            <p class="stat-label">ROI Promedio</p>
+            <span class="stat-change positive">+2.1%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3 class="chart-title">Rendimiento Mensual</h3>
+          <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3 class="chart-title">Distribución por Tipo</h3>
+          <canvas id="pieChart"></canvas>
+        </div>
+      </div>
+
+      <div class="investments-table">
+        <h3 class="table-title">Mis Inversiones Activas</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Propiedad</th>
+                <th>Ubicación</th>
+                <th>Inversión</th>
+                <th>Rendimiento</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="property-info">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Propiedad" class="property-img">
+                    <span>Apartamento Centro</span>
+                  </div>
+                </td>
+                <td>Toronto, Canadá</td>
+                <td>$15,000</td>
+                <td class="positive">+$1,850</td>
+                <td><span class="status active">Activa</span></td>
+                <td><button class="btn-action">Ver Detalles</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="property-info">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Propiedad" class="property-img">
+                    <span>Casa Vancouver</span>
+                  </div>
+                </td>
+                <td>Vancouver, Canadá</td>
+                <td>$25,000</td>
+                <td class="positive">+$3,200</td>
+                <td><span class="status active">Activa</span></td>
+                <td><button class="btn-action">Ver Detalles</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Planes de Inversión -->
+    <section class="content-section" id="planes">
+      <div class="plans-grid">
+        <div class="plan-card recommended">
+          <div class="plan-badge">Recomendado</div>
+          <h3 class="plan-title">Plan Básico</h3>
+          <div class="plan-price">$500 - $5,000</div>
+          <ul class="plan-features">
+            <li>✅ Acceso a propiedades básicas</li>
+            <li>✅ Rentabilidad 8-10%</li>
+            <li>✅ Soporte por email</li>
+            <li>✅ Reportes mensuales</li>
+          </ul>
+          <button class="plan-btn">Comenzar</button>
+        </div>
+        
+        <div class="plan-card">
+          <h3 class="plan-title">Plan Premium</h3>
+          <div class="plan-price">$5,000 - $25,000</div>
+          <ul class="plan-features">
+            <li>✅ Acceso a propiedades premium</li>
+            <li>✅ Rentabilidad 10-15%</li>
+            <li>✅ Asesor personal</li>
+            <li>✅ Reportes semanales</li>
+            <li>✅ Acceso prioritario</li>
+          </ul>
+          <button class="plan-btn">Comenzar</button>
+        </div>
+        
+        <div class="plan-card">
+          <h3 class="plan-title">Plan VIP</h3>
+          <div class="plan-price">$25,000+</div>
+          <ul class="plan-features">
+            <li>✅ Propiedades exclusivas</li>
+            <li>✅ Rentabilidad 15-20%</li>
+            <li>✅ Gestor dedicado</li>
+            <li>✅ Reportes diarios</li>
+            <li>✅ Eventos exclusivos</li>
+          </ul>
+          <button class="plan-btn">Comenzar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Billetera -->
+    <section class="content-section" id="billetera">
+      <!-- Header mejorado de billetera -->
+      <div class="wallet-header-advanced">
+        <div class="wallet-summary">
+          <div class="balance-main">
+            <h2 class="balance-title">Balance Total</h2>
+            <div class="balance-display-large">$12,450.75</div>
+            <div class="balance-change">
+              <span class="change-indicator positive">+$1,250.30</span>
+              <span class="change-period">(+11.2% este mes)</span>
+            </div>
+          </div>
+          
+          <div class="balance-breakdown">
+            <div class="breakdown-item">
+              <div class="breakdown-icon available">💰</div>
+              <div class="breakdown-content">
+                <span class="breakdown-amount">$8,450.75</span>
+                <span class="breakdown-label">Disponible</span>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-icon invested">📈</div>
+              <div class="breakdown-content">
+                <span class="breakdown-amount">$4,000.00</span>
+                <span class="breakdown-label">Invertido</span>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-icon pending">⏳</div>
+              <div class="breakdown-content">
+                <span class="breakdown-amount">$750.25</span>
+                <span class="breakdown-label">Pendiente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="wallet-quick-actions">
+          <button class="quick-action-btn deposit" id="depositBtn">
+            <span class="action-icon">💸</span>
+            <span class="action-text">Depositar</span>
+          </button>
+          <button class="quick-action-btn withdraw" id="withdrawBtn">
+            <span class="action-icon">🏦</span>
+            <span class="action-text">Retirar</span>
+          </button>
+          <button class="quick-action-btn transfer" id="transferBtn">
+            <span class="action-icon">🔄</span>
+            <span class="action-text">Transferir</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Cards principales -->
+      <div class="wallet-main-grid">
+        <!-- Gráfico de balance -->
+        <div class="wallet-chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title">
+              <span class="title-icon">📊</span>
+              Evolución del Balance
+            </h3>
+            <div class="chart-controls">
+              <select class="chart-period" id="chartPeriod">
+                <option value="7d">7 días</option>
+                <option value="1m" selected>1 mes</option>
+                <option value="3m">3 meses</option>
+                <option value="1y">1 año</option>
+              </select>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="balanceChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Transacciones recientes mejoradas -->
+        <div class="transactions-card">
+          <div class="transactions-header">
+            <h3 class="card-title">
+              <span class="title-icon">📋</span>
+              Transacciones Recientes
+            </h3>
+            <div class="transactions-filters">
+              <select class="transaction-filter" id="transactionFilter">
+                <option value="all">Todas</option>
+                <option value="deposit">Depósitos</option>
+                <option value="withdrawal">Retiros</option>
+                <option value="investment">Inversiones</option>
+                <option value="commission">Comisiones</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="transactions-list">
+            <div class="transaction-item deposit">
+              <div class="transaction-icon-wrapper">
+                <div class="transaction-icon deposit">💸</div>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-main">
+                  <span class="transaction-type">Depósito por Transferencia</span>
+                  <span class="transaction-id">#TXN-001234</span>
+                </div>
+                <div class="transaction-meta">
+                  <span class="transaction-date">15 Dic 2024, 14:32</span>
+                  <span class="transaction-status confirmed">Confirmado</span>
+                </div>
+              </div>
+              <div class="transaction-amount-wrapper">
+                <span class="transaction-amount positive">+$5,000.00</span>
+                <button class="transaction-action">Ver</button>
+              </div>
+            </div>
+
+            <div class="transaction-item investment">
+              <div class="transaction-icon-wrapper">
+                <div class="transaction-icon investment">🏠</div>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-main">
+                  <span class="transaction-type">Inversión - Apartamento Toronto</span>
+                  <span class="transaction-id">#INV-2024-001</span>
+                </div>
+                <div class="transaction-meta">
+                  <span class="transaction-date">12 Dic 2024, 09:15</span>
+                  <span class="transaction-status confirmed">Confirmado</span>
+                </div>
+              </div>
+              <div class="transaction-amount-wrapper">
+                <span class="transaction-amount negative">-$2,500.00</span>
+                <button class="transaction-action">Ver</button>
+              </div>
+            </div>
+
+            <div class="transaction-item commission">
+              <div class="transaction-icon-wrapper">
+                <div class="transaction-icon commission">👥</div>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-main">
+                  <span class="transaction-type">Comisión por Referido</span>
+                  <span class="transaction-id">#REF-789</span>
+                </div>
+                <div class="transaction-meta">
+                  <span class="transaction-date">10 Dic 2024, 16:20</span>
+                  <span class="transaction-status confirmed">Confirmado</span>
+                </div>
+              </div>
+              <div class="transaction-amount-wrapper">
+                <span class="transaction-amount positive">+$100.00</span>
+                <button class="transaction-action">Ver</button>
+              </div>
+            </div>
+
+            <div class="transaction-item withdrawal">
+              <div class="transaction-icon-wrapper">
+                <div class="transaction-icon withdrawal">🏦</div>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-main">
+                  <span class="transaction-type">Retiro a Cuenta Bancaria</span>
+                  <span class="transaction-id">#WTH-456</span>
+                </div>
+                <div class="transaction-meta">
+                  <span class="transaction-date">08 Dic 2024, 11:45</span>
+                  <span class="transaction-status pending">Procesando</span>
+                </div>
+              </div>
+              <div class="transaction-amount-wrapper">
+                <span class="transaction-amount negative">-$1,000.00</span>
+                <button class="transaction-action">Ver</button>
+              </div>
+            </div>
+
+            <div class="transaction-item deposit">
+              <div class="transaction-icon-wrapper">
+                <div class="transaction-icon deposit">💳</div>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-main">
+                  <span class="transaction-type">Depósito con Tarjeta</span>
+                  <span class="transaction-id">#TXN-001189</span>
+                </div>
+                <div class="transaction-meta">
+                  <span class="transaction-date">05 Dic 2024, 19:30</span>
+                  <span class="transaction-status confirmed">Confirmado</span>
+                </div>
+              </div>
+              <div class="transaction-amount-wrapper">
+                <span class="transaction-amount positive">+$750.25</span>
+                <button class="transaction-action">Ver</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="transactions-footer">
+            <button class="view-all-btn" id="viewAllTransactions">
+              Ver Todas las Transacciones
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Métodos de pago y configuraciones -->
+      <div class="wallet-secondary-grid">
+        <!-- Métodos de pago mejorados -->
+        <div class="payment-methods-card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <span class="title-icon">💳</span>
+              Métodos de Pago
+            </h3>
+            <button class="add-method-btn" id="addPaymentMethod">
+              <span class="btn-icon">+</span>
+              Agregar
+            </button>
+          </div>
+          
+          <div class="payment-methods-list">
+            <div class="payment-method-item primary">
+              <div class="payment-icon-wrapper">
+                <div class="payment-brand visa">VISA</div>
+              </div>
+              <div class="payment-details">
+                <div class="payment-name">Tarjeta de Crédito</div>
+                <div class="payment-number">•••• •••• •••• 1234</div>
+                <div class="payment-meta">
+                  <span class="payment-expiry">Exp: 12/27</span>
+                  <span class="payment-status primary">Principal</span>
+                </div>
+              </div>
+              <div class="payment-actions">
+                <button class="payment-action-btn edit">✏️</button>
+                <button class="payment-action-btn delete">🗑️</button>
+              </div>
+            </div>
+
+            <div class="payment-method-item">
+              <div class="payment-icon-wrapper">
+                <div class="payment-brand mastercard">MC</div>
+              </div>
+              <div class="payment-details">
+                <div class="payment-name">Tarjeta de Débito</div>
+                <div class="payment-number">•••• •••• •••• 5678</div>
+                <div class="payment-meta">
+                  <span class="payment-expiry">Exp: 08/26</span>
+                  <span class="payment-status">Secundaria</span>
+                </div>
+              </div>
+              <div class="payment-actions">
+                <button class="payment-action-btn edit">✏️</button>
+                <button class="payment-action-btn delete">🗑️</button>
+              </div>
+            </div>
+
+            <div class="payment-method-item">
+              <div class="payment-icon-wrapper">
+                <div class="payment-brand bank">🏦</div>
+              </div>
+              <div class="payment-details">
+                <div class="payment-name">Cuenta Bancaria</div>
+                <div class="payment-number">Banco Nacional - ••••7890</div>
+                <div class="payment-meta">
+                  <span class="payment-expiry">Cuenta Corriente</span>
+                  <span class="payment-status verified">Verificada</span>
+                </div>
+              </div>
+              <div class="payment-actions">
+                <button class="payment-action-btn edit">✏️</button>
+                <button class="payment-action-btn delete">🗑️</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Configuraciones de billetera -->
+        <div class="wallet-settings-card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <span class="title-icon">⚙️</span>
+              Configuraciones
+            </h3>
+          </div>
+          
+          <div class="settings-list">
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-name">Notificaciones de Transacciones</div>
+                <div class="setting-desc">Recibir alertas por email y push</div>
+              </div>
+              <label class="setting-toggle">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-name">Límites de Transacción</div>
+                <div class="setting-desc">Límite diario: $50,000</div>
+              </div>
+              <button class="setting-action">Configurar</button>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-name">Autenticación 2FA</div>
+                <div class="setting-desc">Requerida para retiros grandes</div>
+              </div>
+              <label class="setting-toggle">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-name">Auto-inversión</div>
+                <div class="setting-desc">Invertir automáticamente excedentes</div>
+              </div>
+              <label class="setting-toggle">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estadísticas de la billetera -->
+        <div class="wallet-stats-card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <span class="title-icon">📈</span>
+              Estadísticas
+            </h3>
+            <select class="stats-period">
+              <option value="month">Este mes</option>
+              <option value="quarter">Trimestre</option>
+              <option value="year">Año</option>
+            </select>
+          </div>
+          
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-icon income">💰</div>
+              <div class="stat-content">
+                <div class="stat-value">$6,850.25</div>
+                <div class="stat-label">Ingresos</div>
+                <div class="stat-change positive">+18.5%</div>
+              </div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-icon expenses">💸</div>
+              <div class="stat-content">
+                <div class="stat-value">$3,500.00</div>
+                <div class="stat-label">Gastos</div>
+                <div class="stat-change negative">-5.2%</div>
+              </div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-icon transactions">📊</div>
+              <div class="stat-content">
+                <div class="stat-value">47</div>
+                <div class="stat-label">Transacciones</div>
+                <div class="stat-change positive">+12</div>
+              </div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-icon average">📋</div>
+              <div class="stat-content">
+                <div class="stat-value">$145.75</div>
+                <div class="stat-label">Promedio</div>
+                <div class="stat-change neutral">+2.1%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modales de acciones -->
+      <div class="modal-overlay" id="modalOverlay" style="display: none;">
+        <div class="modal-content" id="modalContent">
+          <!-- El contenido se cargará dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Oportunidades -->
+    <section class="content-section" id="oportunidades">
+      <!-- Header de la sección -->
+      <div class="opportunities-header">
+        <div class="header-info">
+          <h2 class="section-title">Oportunidades de Inversión</h2>
+          <p class="section-subtitle">Descubre las mejores propiedades disponibles para invertir</p>
+        </div>
+        <div class="header-stats">
+          <div class="stat-item">
+            <span class="stat-number">127</span>
+            <span class="stat-label">Propiedades</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">12.5%</span>
+            <span class="stat-label">ROI Promedio</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtros mejorados -->
+      <div class="opportunities-filters">
+        <div class="filters-row">
+          <div class="filter-group">
+            <label class="filter-label">
+              <span class="label-icon">🏙️</span>
+              Ciudad
+            </label>
+            <div class="custom-select">
+              <select class="filter-select" id="cityFilter">
+                <option value="">Todas las ciudades</option>
+                <option value="toronto">Toronto</option>
+                <option value="vancouver">Vancouver</option>
+                <option value="montreal">Montreal</option>
+                <option value="calgary">Calgary</option>
+                <option value="ottawa">Ottawa</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label">
+              <span class="label-icon">🏠</span>
+              Tipo de Inversión
+            </label>
+            <div class="custom-select">
+              <select class="filter-select" id="typeFilter">
+                <option value="">Todos los tipos</option>
+                <option value="fraccion">Fracción</option>
+                <option value="alquilada">Alquilada</option>
+                <option value="venta">Venta</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label">
+              <span class="label-icon">💰</span>
+              Rango de Inversión
+            </label>
+            <div class="price-filter">
+              <input type="range" class="price-range" id="priceRange" min="1000" max="100000" value="50000">
+              <div class="range-labels">
+                <span class="range-min">$1K</span>
+                <span class="range-value" id="rangeValue">$50K</span>
+                <span class="range-max">$100K</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label">
+              <span class="label-icon">📊</span>
+              ROI Mínimo
+            </label>
+            <div class="custom-select">
+              <select class="filter-select" id="roiFilter">
+                <option value="">Cualquier ROI</option>
+                <option value="8">8%+</option>
+                <option value="10">10%+</option>
+                <option value="12">12%+</option>
+                <option value="15">15%+</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="filters-actions">
+          <button class="filter-btn secondary" id="clearFilters">
+            <span class="btn-icon">🔄</span>
+            Limpiar Filtros
+          </button>
+          <button class="filter-btn primary" id="applyFilters">
+            <span class="btn-icon">🔍</span>
+            Buscar Propiedades
+          </button>
+        </div>
+      </div>
+
+      <!-- Resultados y ordenamiento -->
+      <div class="results-header">
+        <div class="results-info">
+          <span class="results-count">Mostrando <strong>24</strong> de <strong>127</strong> propiedades</span>
+        </div>
+        <div class="sort-options">
+          <label class="sort-label">Ordenar por:</label>
+          <div class="custom-select small">
+            <select class="sort-select">
+              <option value="featured">Destacadas</option>
+              <option value="price-low">Precio: Menor a Mayor</option>
+              <option value="price-high">Precio: Mayor a Menor</option>
+              <option value="roi-high">ROI: Mayor a Menor</option>
+              <option value="newest">Más Recientes</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Grid de oportunidades mejorado -->
+      <div class="opportunities-grid">
+        <div class="opportunity-card featured">
+          <div class="card-badge">Destacada</div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Propiedad" class="opp-image">
+            <div class="image-overlay">
+              <button class="favorite-btn">❤️</button>
+              <button class="gallery-btn">📷 8</button>
+            </div>
+          </div>
+          <div class="opp-content">
+            <div class="property-header">
+              <h4 class="property-title">Apartamento Moderno Centro</h4>
+              <div class="property-type">Fracción</div>
+            </div>
+            <p class="opp-location">
+              <span class="location-icon">📍</span>
+              Downtown Toronto, Canadá
+            </p>
+            <div class="property-details">
+              <div class="detail-item">
+                <span class="detail-icon">🏠</span>
+                <span class="detail-text">2 bed, 2 bath</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">📏</span>
+                <span class="detail-text">85 m²</span>
+              </div>
+            </div>
+            <div class="opp-metrics">
+              <div class="metric">
+                <span class="metric-label">Inversión Mínima</span>
+                <span class="metric-value">$5,000</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">ROI Anual</span>
+                <span class="metric-value roi-high">15.2%</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Plazo</span>
+                <span class="metric-value">24 meses</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="action-btn secondary">Ver Detalles</button>
+              <button class="action-btn primary">Invertir Ahora</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="opportunity-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Propiedad" class="opp-image">
+            <div class="image-overlay">
+              <button class="favorite-btn">🤍</button>
+              <button class="gallery-btn">📷 12</button>
+            </div>
+          </div>
+          <div class="opp-content">
+            <div class="property-header">
+              <h4 class="property-title">Casa Familiar Vancouver</h4>
+              <div class="property-type">Alquilada</div>
+            </div>
+            <p class="opp-location">
+              <span class="location-icon">📍</span>
+              Richmond, Vancouver
+            </p>
+            <div class="property-details">
+              <div class="detail-item">
+                <span class="detail-icon">🏠</span>
+                <span class="detail-text">3 bed, 2.5 bath</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">📏</span>
+                <span class="detail-text">120 m²</span>
+              </div>
+            </div>
+            <div class="opp-metrics">
+              <div class="metric">
+                <span class="metric-label">Inversión Mínima</span>
+                <span class="metric-value">$10,000</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">ROI Anual</span>
+                <span class="metric-value roi-medium">12.8%</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Plazo</span>
+                <span class="metric-value">36 meses</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="action-btn secondary">Ver Detalles</button>
+              <button class="action-btn primary">Invertir Ahora</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="opportunity-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Propiedad" class="opp-image">
+            <div class="image-overlay">
+              <button class="favorite-btn">🤍</button>
+              <button class="gallery-btn">📷 6</button>
+            </div>
+          </div>
+          <div class="opp-content">
+            <div class="property-header">
+              <h4 class="property-title">Condominio Montreal</h4>
+              <div class="property-type">Venta</div>
+            </div>
+            <p class="opp-location">
+              <span class="location-icon">📍</span>
+              Plateau Mont-Royal, Montreal
+            </p>
+            <div class="property-details">
+              <div class="detail-item">
+                <span class="detail-icon">🏠</span>
+                <span class="detail-text">1 bed, 1 bath</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">📏</span>
+                <span class="detail-text">65 m²</span>
+              </div>
+            </div>
+            <div class="opp-metrics">
+              <div class="metric">
+                <span class="metric-label">Inversión Mínima</span>
+                <span class="metric-value">$8,500</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">ROI Anual</span>
+                <span class="metric-value roi-low">10.5%</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Plazo</span>
+                <span class="metric-value">18 meses</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="action-btn secondary">Ver Detalles</button>
+              <button class="action-btn primary">Invertir Ahora</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paginación -->
+      <div class="pagination">
+        <button class="page-btn" disabled>← Anterior</button>
+        <div class="page-numbers">
+          <button class="page-number active">1</button>
+          <button class="page-number">2</button>
+          <button class="page-number">3</button>
+          <span class="page-dots">...</span>
+          <button class="page-number">8</button>
+        </div>
+        <button class="page-btn">Siguiente →</button>
+      </div>
+    </section>
+
+    <!-- Sección: Mi Cuenta -->
+    <section class="content-section" id="cuenta">
+      <!-- Header de la cuenta -->
+      <div class="account-header">
+        <div class="account-user-info">
+          <div class="user-avatar-large">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Carlos Mendoza" class="avatar-img">
+            <button class="avatar-edit-btn">📷</button>
+          </div>
+          <div class="user-details">
+            <h2 class="user-name">Carlos Mendoza</h2>
+            <p class="user-email">carlos@email.com</p>
+            <div class="user-stats">
+              <div class="user-stat">
+                <span class="stat-value">$45,230</span>
+                <span class="stat-label">Total Invertido</span>
+              </div>
+              <div class="user-stat">
+                <span class="stat-value">7</span>
+                <span class="stat-label">Propiedades</span>
+              </div>
+              <div class="user-stat">
+                <span class="stat-value">2 años</span>
+                <span class="stat-label">Miembro desde</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="account-actions">
+          <button class="account-action-btn secondary">
+            <span class="btn-icon">📧</span>
+            Cambiar Email
+          </button>
+          <button class="account-action-btn primary">
+            <span class="btn-icon">🔒</span>
+            Cambiar Contraseña
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabs mejorados -->
+      <div class="account-tabs">
+        <button class="account-tab active" data-tab="personal">
+          <span class="tab-icon">👤</span>
+          <span class="tab-text">Datos Personales</span>
+        </button>
+        <button class="account-tab" data-tab="contratos">
+          <span class="tab-icon">📋</span>
+          <span class="tab-text">Contratos</span>
+          <span class="tab-badge">3</span>
+        </button>
+        <button class="account-tab" data-tab="documentos">
+          <span class="tab-icon">📄</span>
+          <span class="tab-text">Documentos</span>
+          <span class="tab-badge">8</span>
+        </button>
+        <button class="account-tab" data-tab="seguridad">
+          <span class="tab-icon">🔐</span>
+          <span class="tab-text">Seguridad</span>
+        </button>
+        <button class="account-tab" data-tab="notificaciones">
+          <span class="tab-icon">🔔</span>
+          <span class="tab-text">Notificaciones</span>
+        </button>
+      </div>
+      
+      <!-- Contenido de las tabs -->
+      <div class="account-content">
+        <!-- Datos Personales -->
+        <div class="account-section active" id="personal">
+          <div class="section-header">
+            <h3 class="section-title">Información Personal</h3>
+            <p class="section-subtitle">Actualiza tu información personal y datos de contacto</p>
+          </div>
+          
+          <form class="profile-form">
+            <div class="form-section">
+              <h4 class="form-section-title">Información Básica</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">
+                    <span class="label-icon">👤</span>
+                    Nombre Completo
+                  </label>
+                  <input type="text" class="form-input" value="Carlos Mendoza" required>
+                  <span class="input-note">Este nombre aparecerá en tus contratos</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">
+                    <span class="label-icon">📧</span>
+                    Correo Electrónico
+                  </label>
+                  <input type="email" class="form-input" value="carlos@email.com" readonly>
+                  <span class="input-note verified">✅ Verificado</span>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">
+                    <span class="label-icon">📱</span>
+                    Teléfono
+                  </label>
+                  <input type="tel" class="form-input" value="+1 416 123 4567" required>
+                  <span class="input-note">Para notificaciones importantes</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">
+                    <span class="label-icon">🎂</span>
+                    Fecha de Nacimiento
+                  </label>
+                  <input type="date" class="form-input" value="1985-03-15" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4 class="form-section-title">Dirección</h4>
+              <div class="form-row">
+                <div class="form-group full-width">
+                  <label class="form-label">
+                    <span class="label-icon">🏠</span>
+                    Dirección Completa
+                  </label>
+                  <input type="text" class="form-input" value="123 Main Street, Apt 4B" required>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">
+                    <span class="label-icon">🏙️</span>
+                    Ciudad
+                  </label>
+                  <input type="text" class="form-input" value="Toronto" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">
+                    <span class="label-icon">🗺️</span>
+                    Provincia
+                  </label>
+                  <select class="form-input" required>
+                    <option value="ON" selected>Ontario</option>
+                    <option value="BC">British Columbia</option>
+                    <option value="QC">Quebec</option>
+                    <option value="AB">Alberta</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">
+                    <span class="label-icon">📮</span>
+                    Código Postal
+                  </label>
+                  <input type="text" class="form-input" value="M5V 3A8" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="form-btn secondary">Cancelar</button>
+              <button type="submit" class="form-btn primary">
+                <span class="btn-loader" style="display: none;">⏳</span>
+                <span class="btn-text">Guardar Cambios</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Contratos -->
+        <div class="account-section" id="contratos">
+          <div class="section-header">
+            <h3 class="section-title">Mis Contratos</h3>
+            <p class="section-subtitle">Gestiona todos tus contratos de inversión</p>
+          </div>
+
+          <div class="contracts-grid">
+            <div class="contract-card active">
+              <div class="contract-header">
+                <div class="contract-info">
+                  <h4 class="contract-title">Apartamento Centro Toronto</h4>
+                  <p class="contract-id">Contrato #INV-2024-001</p>
+                </div>
+                <div class="contract-status">
+                  <span class="status-badge active">Activo</span>
+                </div>
+              </div>
+              <div class="contract-details">
+                <div class="detail-row">
+                  <span class="detail-label">Inversión:</span>
+                  <span class="detail-value">$15,000</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Fecha de inicio:</span>
+                  <span class="detail-value">15 Ene 2024</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Vencimiento:</span>
+                  <span class="detail-value">15 Ene 2026</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">ROI:</span>
+                  <span class="detail-value roi-positive">15.2%</span>
+                </div>
+              </div>
+              <div class="contract-actions">
+                <button class="contract-btn secondary">Ver Detalles</button>
+                <button class="contract-btn primary">Descargar PDF</button>
+              </div>
+            </div>
+
+            <div class="contract-card">
+              <div class="contract-header">
+                <div class="contract-info">
+                  <h4 class="contract-title">Casa Vancouver</h4>
+                  <p class="contract-id">Contrato #INV-2024-002</p>
+                </div>
+                <div class="contract-status">
+                  <span class="status-badge active">Activo</span>
+                </div>
+              </div>
+              <div class="contract-details">
+                <div class="detail-row">
+                  <span class="detail-label">Inversión:</span>
+                  <span class="detail-value">$25,000</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Fecha de inicio:</span>
+                  <span class="detail-value">01 Feb 2024</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Vencimiento:</span>
+                  <span class="detail-value">01 Feb 2027</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">ROI:</span>
+                  <span class="detail-value roi-positive">12.8%</span>
+                </div>
+              </div>
+              <div class="contract-actions">
+                <button class="contract-btn secondary">Ver Detalles</button>
+                <button class="contract-btn primary">Descargar PDF</button>
+              </div>
+            </div>
+
+            <div class="contract-card completed">
+              <div class="contract-header">
+                <div class="contract-info">
+                  <h4 class="contract-title">Condominio Montreal</h4>
+                  <p class="contract-id">Contrato #INV-2023-015</p>
+                </div>
+                <div class="contract-status">
+                  <span class="status-badge completed">Completado</span>
+                </div>
+              </div>
+              <div class="contract-details">
+                <div class="detail-row">
+                  <span class="detail-label">Inversión:</span>
+                  <span class="detail-value">$8,500</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Fecha de inicio:</span>
+                  <span class="detail-value">10 Jun 2023</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Finalizado:</span>
+                  <span class="detail-value">10 Dic 2023</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Ganancia:</span>
+                  <span class="detail-value roi-positive">+$892</span>
+                </div>
+              </div>
+              <div class="contract-actions">
+                <button class="contract-btn secondary">Ver Detalles</button>
+                <button class="contract-btn primary">Descargar PDF</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Documentos -->
+        <div class="account-section" id="documentos">
+          <div class="section-header">
+            <h3 class="section-title">Mis Documentos</h3>
+            <p class="section-subtitle">Accede a todos tus documentos importantes</p>
+          </div>
+
+          <div class="documents-container">
+            <div class="upload-area">
+              <div class="upload-icon">📁</div>
+              <h4>Subir Nuevo Documento</h4>
+              <p>Arrastra archivos aquí o haz clic para seleccionar</p>
+              <input type="file" id="fileUpload" multiple accept=".pdf,.doc,.docx,.jpg,.png" style="display: none;">
+              <button class="upload-btn" onclick="document.getElementById('fileUpload').click()">
+                Seleccionar Archivos
+              </button>
+            </div>
+
+            <div class="documents-list">
+              <div class="document-item">
+                <div class="doc-icon">📄</div>
+                <div class="doc-info">
+                  <h5 class="doc-name">Identificación - Pasaporte</h5>
+                  <p class="doc-details">PDF • 2.3 MB • Subido el 15 Ene 2024</p>
+                </div>
+                <div class="doc-status verified">✅ Verificado</div>
+                <div class="doc-actions">
+                  <button class="doc-btn">Ver</button>
+                  <button class="doc-btn">Descargar</button>
+                </div>
+              </div>
+
+              <div class="document-item">
+                <div class="doc-icon">📄</div>
+                <div class="doc-info">
+                  <h5 class="doc-name">Comprobante de Ingresos</h5>
+                  <p class="doc-details">PDF • 1.8 MB • Subido el 20 Ene 2024</p>
+                </div>
+                <div class="doc-status verified">✅ Verificado</div>
+                <div class="doc-actions">
+                  <button class="doc-btn">Ver</button>
+                  <button class="doc-btn">Descargar</button>
+                </div>
+              </div>
+
+              <div class="document-item">
+                <div class="doc-icon">📄</div>
+                <div class="doc-info">
+                  <h5 class="doc-name">Comprobante de Domicilio</h5>
+                  <p class="doc-details">PDF • 1.2 MB • Subido el 22 Ene 2024</p>
+                </div>
+                <div class="doc-status pending">⏳ Pendiente</div>
+                <div class="doc-actions">
+                  <button class="doc-btn">Ver</button>
+                  <button class="doc-btn">Descargar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seguridad -->
+        <div class="account-section" id="seguridad">
+          <div class="section-header">
+            <h3 class="section-title">Seguridad de la Cuenta</h3>
+            <p class="section-subtitle">Mantén tu cuenta segura con estas configuraciones</p>
+          </div>
+
+          <div class="security-settings">
+            <div class="security-item">
+              <div class="security-info">
+                <h4>Autenticación de Dos Factores (2FA)</h4>
+                <p>Agrega una capa extra de seguridad a tu cuenta</p>
+              </div>
+              <div class="security-action">
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="security-item">
+              <div class="security-info">
+                <h4>Notificaciones de Inicio de Sesión</h4>
+                <p>Recibe alertas cuando alguien acceda a tu cuenta</p>
+              </div>
+              <div class="security-action">
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="security-item">
+              <div class="security-info">
+                <h4>Sesiones Activas</h4>
+                <p>Gestiona los dispositivos conectados a tu cuenta</p>
+              </div>
+              <div class="security-action">
+                <button class="security-btn">Ver Sesiones</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="account-section" id="notificaciones">
+          <div class="section-header">
+            <h3 class="section-title">Preferencias de Notificación</h3>
+            <p class="section-subtitle">Personaliza cómo y cuándo recibir notificaciones</p>
+          </div>
+
+          <div class="notification-settings">
+            <div class="notification-category">
+              <h4 class="category-title">Inversiones</h4>
+              <div class="notification-item">
+                <div class="notification-info">
+                  <span class="notification-name">Nuevas oportunidades</span>
+                  <span class="notification-desc">Cuando hay nuevas propiedades disponibles</span>
+                </div>
+                <div class="notification-controls">
+                  <label class="toggle-switch small">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <select class="notification-method">
+                    <option>Email + Push</option>
+                    <option>Solo Email</option>
+                    <option>Solo Push</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="notification-item">
+                <div class="notification-info">
+                  <span class="notification-name">Actualizaciones de rendimiento</span>
+                  <span class="notification-desc">Reportes mensuales de tus inversiones</span>
+                </div>
+                <div class="notification-controls">
+                  <label class="toggle-switch small">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <select class="notification-method">
+                    <option>Email + Push</option>
+                    <option>Solo Email</option>
+                    <option>Solo Push</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="notification-category">
+              <h4 class="category-title">Cuenta</h4>
+              <div class="notification-item">
+                <div class="notification-info">
+                  <span class="notification-name">Cambios de seguridad</span>
+                  <span class="notification-desc">Cambios de contraseña, 2FA, etc.</span>
+                </div>
+                <div class="notification-controls">
+                  <label class="toggle-switch small">
+                    <input type="checkbox" checked disabled>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <select class="notification-method" disabled>
+                    <option>Email + Push</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Referidos -->
+    <section class="content-section" id="referidos">
+      <!-- Header mejorado -->
+      <div class="referral-header">
+        <div class="header-content">
+          <h2 class="referral-title">Programa de Referidos</h2>
+          <p class="referral-subtitle">Invita a tus amigos y gana comisiones por cada inversión que realicen</p>
+          <div class="referral-benefits">
+            <div class="benefit-item">
+              <span class="benefit-icon">💰</span>
+              <span class="benefit-text">$100 por registro + inversión</span>
+            </div>
+            <div class="benefit-item">
+              <span class="benefit-icon">🎯</span>
+              <span class="benefit-text">5% de comisión vitalicia</span>
+            </div>
+            <div class="benefit-item">
+              <span class="benefit-icon">🚀</span>
+              <span class="benefit-text">Bonos por volumen</span>
+            </div>
+          </div>
+        </div>
+        <div class="referral-illustration">
+          <div class="illustration-circle">
+            <span class="illustration-icon">👥</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estadísticas mejoradas -->
+      <div class="referral-stats-grid">
+        <div class="stat-card primary">
+          <div class="stat-icon">👥</div>
+          <div class="stat-content">
+            <h3 class="stat-number">12</h3>
+            <p class="stat-label">Total Referidos</p>
+            <span class="stat-trend positive">+3 este mes</span>
+          </div>
+        </div>
+        
+        <div class="stat-card success">
+          <div class="stat-icon">✅</div>
+          <div class="stat-content">
+            <h3 class="stat-number">8</h3>
+            <p class="stat-label">Referidos Activos</p>
+            <span class="stat-trend neutral">66.7% conversión</span>
+          </div>
+        </div>
+        
+        <div class="stat-card warning">
+          <div class="stat-icon">💰</div>
+          <div class="stat-content">
+            <h3 class="stat-number">$1,250</h3>
+            <p class="stat-label">Comisiones Totales</p>
+            <span class="stat-trend positive">+$200 este mes</span>
+          </div>
+        </div>
+        
+        <div class="stat-card info">
+          <div class="stat-icon">📊</div>
+          <div class="stat-content">
+            <h3 class="stat-number">$85,400</h3>
+            <p class="stat-label">Volumen Generado</p>
+            <span class="stat-trend positive">+15.2% vs mes anterior</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Herramientas de referido -->
+      <div class="referral-tools">
+        <div class="tool-section">
+          <h3 class="section-title">
+            <span class="title-icon">🔗</span>
+            Tu Enlace de Referido
+          </h3>
+          <div class="link-container">
+            <div class="link-input-group">
+              <input type="text" id="referralLink" value="https://vigeourban.com/ref/carlos123" readonly class="referral-input">
+              <button class="copy-btn" id="copyLinkBtn">
+                <span class="btn-icon">📋</span>
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+            <div class="link-stats">
+              <div class="link-stat">
+                <span class="stat-value">47</span>
+                <span class="stat-label">Clicks</span>
+              </div>
+              <div class="link-stat">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Registros</span>
+              </div>
+              <div class="link-stat">
+                <span class="stat-value">25.5%</span>
+                <span class="stat-label">Conversión</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-section">
+          <h3 class="section-title">
+            <span class="title-icon">📱</span>
+            Compartir en Redes Sociales
+          </h3>
+          <div class="social-share">
+            <button class="social-btn whatsapp" data-platform="whatsapp">
+              <span class="social-icon">📱</span>
+              <span class="social-text">WhatsApp</span>
+            </button>
+            <button class="social-btn facebook" data-platform="facebook">
+              <span class="social-icon">📘</span>
+              <span class="social-text">Facebook</span>
+            </button>
+            <button class="social-btn twitter" data-platform="twitter">
+              <span class="social-icon">🐦</span>
+              <span class="social-text">Twitter</span>
+            </button>
+            <button class="social-btn linkedin" data-platform="linkedin">
+              <span class="social-icon">💼</span>
+              <span class="social-text">LinkedIn</span>
+            </button>
+            <button class="social-btn email" data-platform="email">
+              <span class="social-icon">📧</span>
+              <span class="social-text">Email</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="tool-section">
+          <h3 class="section-title">
+            <span class="title-icon">🎨</span>
+            Material Promocional
+          </h3>
+          <div class="promo-materials">
+            <div class="material-item">
+              <div class="material-preview">
+                <div class="preview-image banner">
+                  <span class="preview-text">Banner 728x90</span>
+                </div>
+              </div>
+              <div class="material-info">
+                <h4>Banner Horizontal</h4>
+                <p>Perfecto para blogs y sitios web</p>
+                <button class="download-btn">Descargar</button>
+              </div>
+            </div>
+            
+            <div class="material-item">
+              <div class="material-preview">
+                <div class="preview-image square">
+                  <span class="preview-text">Post 1080x1080</span>
+                </div>
+              </div>
+              <div class="material-info">
+                <h4>Post para Redes</h4>
+                <p>Instagram, Facebook, LinkedIn</p>
+                <button class="download-btn">Descargar</button>
+              </div>
+            </div>
+            
+            <div class="material-item">
+              <div class="material-preview">
+                <div class="preview-image story">
+                  <span class="preview-text">Story 1080x1920</span>
+                </div>
+              </div>
+              <div class="material-info">
+                <h4>Historia/Story</h4>
+                <p>Instagram y Facebook Stories</p>
+                <button class="download-btn">Descargar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de referidos -->
+      <div class="referrals-list-section">
+        <div class="list-header">
+          <h3 class="section-title">
+            <span class="title-icon">👨‍👩‍👧‍👦</span>
+            Mis Referidos
+          </h3>
+          <div class="list-filters">
+            <select class="filter-select" id="statusFilter">
+              <option value="">Todos los estados</option>
+              <option value="active">Activos</option>
+              <option value="pending">Pendientes</option>
+              <option value="inactive">Inactivos</option>
+            </select>
+            <select class="filter-select" id="periodFilter">
+              <option value="all">Todo el tiempo</option>
+              <option value="month">Este mes</option>
+              <option value="quarter">Este trimestre</option>
+              <option value="year">Este año</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="referrals-table-container">
+          <table class="referrals-table">
+            <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Fecha de Registro</th>
+                <th>Estado</th>
+                <th>Inversión Total</th>
+                <th>Tu Comisión</th>
+                <th>Última Actividad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="referral-row active">
+                <td>
+                  <div class="user-info">
+                    <div class="user-avatar">
+                      <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Ana García">
+                    </div>
+                    <div class="user-details">
+                      <span class="user-name">Ana García</span>
+                      <span class="user-email">ana.garcia@email.com</span>
+                    </div>
+                  </div>
+                </td>
+                <td>15 Ene 2024</td>
+                <td><span class="status-badge active">Activo</span></td>
+                <td class="amount">$25,000</td>
+                <td class="commission positive">$325</td>
+                <td>Hace 2 días</td>
+              </tr>
+              
+              <tr class="referral-row active">
+                <td>
+                  <div class="user-info">
+                    <div class="user-avatar">
+                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Miguel Torres">
+                    </div>
+                    <div class="user-details">
+                      <span class="user-name">Miguel Torres</span>
+                      <span class="user-email">miguel.torres@email.com</span>
+                    </div>
+                  </div>
+                </td>
+                <td>08 Feb 2024</td>
+                <td><span class="status-badge active">Activo</span></td>
+                <td class="amount">$15,000</td>
+                <td class="commission positive">$200</td>
+                <td>Hace 5 días</td>
+              </tr>
+              
+              <tr class="referral-row pending">
+                <td>
+                  <div class="user-info">
+                    <div class="user-avatar">
+                      <div class="avatar-placeholder">L</div>
+                    </div>
+                    <div class="user-details">
+                      <span class="user-name">Laura Mendez</span>
+                      <span class="user-email">laura.mendez@email.com</span>
+                    </div>
+                  </div>
+                </td>
+                <td>20 Mar 2024</td>
+                <td><span class="status-badge pending">Pendiente</span></td>
+                <td class="amount">$0</td>
+                <td class="commission">$0</td>
+                <td>Hace 1 semana</td>
+              </tr>
+              
+              <tr class="referral-row active">
+                <td>
+                  <div class="user-info">
+                    <div class="user-avatar">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Roberto Silva">
+                    </div>
+                    <div class="user-details">
+                      <span class="user-name">Roberto Silva</span>
+                      <span class="user-email">roberto.silva@email.com</span>
+                    </div>
+                  </div>
+                </td>
+                <td>12 Mar 2024</td>
+                <td><span class="status-badge active">Activo</span></td>
+                <td class="amount">$45,400</td>
+                <td class="commission positive">$725</td>
+                <td>Ayer</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Programa de niveles -->
+      <div class="levels-program">
+        <h3 class="section-title">
+          <span class="title-icon">🏆</span>
+          Programa de Niveles
+        </h3>
+        <div class="levels-grid">
+          <div class="level-card current">
+            <div class="level-badge">Nivel Actual</div>
+            <div class="level-icon">🥉</div>
+            <h4 class="level-name">Bronce</h4>
+            <div class="level-requirements">
+              <p>5+ referidos activos</p>
+              <p>$50K+ volumen generado</p>
+            </div>
+            <div class="level-benefits">
+              <div class="benefit">✅ 5% comisión base</div>
+              <div class="benefit">✅ Bono $100 por referido</div>
+            </div>
+            <div class="level-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%"></div>
+              </div>
+              <span class="progress-text">85% completado</span>
+            </div>
+          </div>
+
+          <div class="level-card next">
+            <div class="level-badge">Siguiente Nivel</div>
+            <div class="level-icon">🥈</div>
+            <h4 class="level-name">Plata</h4>
+            <div class="level-requirements">
+              <p>15+ referidos activos</p>
+              <p>$150K+ volumen generado</p>
+            </div>
+            <div class="level-benefits">
+              <div class="benefit">🎯 6% comisión base</div>
+              <div class="benefit">🎯 Bono $150 por referido</div>
+              <div class="benefit">🎯 Bono trimestral $500</div>
+            </div>
+            <div class="level-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%"></div>
+              </div>
+              <span class="progress-text">Faltan 7 referidos</span>
+            </div>
+          </div>
+
+          <div class="level-card future">
+            <div class="level-badge">Nivel Premium</div>
+            <div class="level-icon">🥇</div>
+            <h4 class="level-name">Oro</h4>
+            <div class="level-requirements">
+              <p>30+ referidos activos</p>
+              <p>$500K+ volumen generado</p>
+            </div>
+            <div class="level-benefits">
+              <div class="benefit">⭐ 8% comisión base</div>
+              <div class="benefit">⭐ Bono $200 por referido</div>
+              <div class="benefit">⭐ Bono trimestral $2,000</div>
+              <div class="benefit">⭐ Gestor personal</div>
+            </div>
+            <div class="level-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 5%"></div>
+              </div>
+              <span class="progress-text">Objetivo a largo plazo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inversiones Inmobiliarias</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <div class="nav-left">
+        <li class="nav-logo">
+          <a href="#"><img src="/home/itac/Documentos/VIGEO/frontend/images/Logo.png" alt="Vigeo Urban Logo" class="logo-img"></a>
+        </li>
+        <li><a href="#">Oportunidades</a></li>
+        <li><a href="#">Comunidad</a></li>
+        <li><a href="#">Promotores</a></li>
+        <li><a href="#">Blog</a></li>
+        <li>
+          <div class="select-wrapper">
+            <select class="nav-rentas">
+              <option selected disabled>Rentas</option>
+              <option value="inversor">Inversor</option>
+              <option value="inquilino">Inquilino</option>
+            </select>
+          </div>
+        </li>
+      </div>
+      <div class="nav-center">
+        <li>
+          <input type="text" class="nav-search" placeholder="Buscar propiedades...">
+        </li>
+      </div>
+      <div class="nav-right">
+        <li>
+          <div class="select-wrapper">
+            <select class="nav-lang">
+              <option value="es">🇪🇸 ES</option>
+              <option value="en">🇺🇸 EN</option>
+              <option value="fr">🇫🇷 FR</option>
+            </select>
+          </div>
+        </li>
+        <li>
+          <a href="login.html" class="nav-login-btn" title="Iniciar Sesión">
+            <span class="nav-login-icon">👤</span>
+            <span class="nav-login-text">Iniciar Sesión</span>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-video">
+      <video autoplay muted loop playsinline>
+        <!-- Video de prueba desde una fuente gratuita -->
+        <source src="/home/itac/Documentos/VIGEO/frontend/images/videofondo.mp4" type="video/mp4">
+        <!-- Fallback temporal con imagen placeholder -->
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Edificación moderna" class="hero-fallback">
+      </video>
+    </div>
+    
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Invierte en el futuro
+          <span class="hero-highlight">inmobiliario</span>
+        </h1>
+        <p class="hero-subtitle">
+          Descubre oportunidades de inversión únicas en propiedades de alta rentabilidad. 
+          Desde $100 puedes formar parte del crecimiento inmobiliario más prometedor.
+        </p>
+        <div class="hero-cta">
+          <a href="#oportunidades" class="btn-primary">Ver oportunidades</a>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">$2.5M+</span>
+              <span class="stat-label">Invertidos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">1500+</span>
+              <span class="stat-label">Inversores</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">12%</span>
+              <span class="stat-label">Rentabilidad media</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Oportunidades -->
+  <section class="opportunities" id="oportunidades">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Oportunidades</h2>
+        <p class="section-subtitle">Descubre las mejores inversiones inmobiliarias disponibles</p>
+      </div>
+      
+      <div class="opportunities-grid">
+        <!-- Card 1 -->
+        <div class="opportunity-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apartamento moderno Toronto">
+            <div class="card-badge badge-fraccion">Fracción</div>
+          </div>
+          <div class="card-content">
+            <div class="card-location">
+              <span class="location-icon">📍</span>
+              <span>Toronto, Canadá</span>
+            </div>
+            <div class="card-details">
+              <div class="detail-item">
+                <span class="detail-label">Tiempo:</span>
+                <span class="detail-value">24 meses</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Valor:</span>
+                <span class="detail-value">$185,000</span>
+              </div>
+              <div class="detail-item profit">
+                <span class="detail-label">Ganancia:</span>
+                <span class="detail-value profit-value">15%</span>
+              </div>
+            </div>
+            <button class="card-btn">Ver detalles</button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="opportunity-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Casa alquilada Vancouver">
+            <div class="card-badge badge-alquilada">Alquilada</div>
+          </div>
+          <div class="card-content">
+            <div class="card-location">
+              <span class="location-icon">📍</span>
+              <span>Vancouver, Canadá</span>
+            </div>
+            <div class="card-details">
+              <div class="detail-item">
+                <span class="detail-label">Tiempo:</span>
+                <span class="detail-value">18 meses</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Valor:</span>
+                <span class="detail-value">$320,000</span>
+              </div>
+              <div class="detail-item profit">
+                <span class="detail-label">Ganancia:</span>
+                <span class="detail-value profit-value">15%</span>
+              </div>
+            </div>
+            <button class="card-btn">Ver detalles</button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="opportunity-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Edificio en venta Montreal">
+            <div class="card-badge badge-venta">Venta</div>
+          </div>
+          <div class="card-content">
+            <div class="card-location">
+              <span class="location-icon">📍</span>
+              <span>Montreal, Canadá</span>
+            </div>
+            <div class="card-details">
+              <div class="detail-item">
+                <span class="detail-label">Tiempo:</span>
+                <span class="detail-value">12 meses</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Valor:</span>
+                <span class="detail-value">$450,000</span>
+              </div>
+              <div class="detail-item profit">
+                <span class="detail-label">Ganancia:</span>
+                <span class="detail-value profit-value">15%</span>
+              </div>
+            </div>
+            <button class="card-btn">Ver detalles</button>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="opportunity-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apartamento fracción Calgary">
+            <div class="card-badge badge-fraccion">Fracción</div>
+          </div>
+          <div class="card-content">
+            <div class="card-location">
+              <span class="location-icon">📍</span>
+              <span>Calgary, Canadá</span>
+            </div>
+            <div class="card-details">
+              <div class="detail-item">
+                <span class="detail-label">Tiempo:</span>
+                <span class="detail-value">36 meses</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Valor:</span>
+                <span class="detail-value">$275,000</span>
+              </div>
+              <div class="detail-item profit">
+                <span class="detail-label">Ganancia:</span>
+                <span class="detail-value profit-value">15%</span>
+              </div>
+            </div>
+            <button class="card-btn">Ver detalles</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-footer">
+        <a href="#" class="btn-secondary">Ver todas las oportunidades</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Noticias -->
+  <section class="news">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Últimas Noticias</h2>
+        <p class="section-subtitle">Mantente al día con las tendencias del mercado inmobiliario y nuevas oportunidades</p>
+      </div>
+      
+      <div class="news-grid">
+        <!-- Artículo 1 -->
+        <article class="news-card featured">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mercado inmobiliario 2025">
+            <div class="news-category category-market">Mercado</div>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">15 Dic 2025</span>
+              <span class="reading-time">5 min lectura</span>
+            </div>
+            <h3 class="news-title">El mercado inmobiliario canadiense crece un 12% en el último trimestre</h3>
+            <p class="news-excerpt">
+              Los precios de la vivienda continúan su tendencia alcista, especialmente en Toronto y Vancouver, 
+              donde la demanda supera significativamente a la oferta disponible.
+            </p>
+            <a href="#" class="news-link">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Artículo 2 -->
+        <article class="news-card">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Inversión inmobiliaria">
+            <div class="news-category category-investment">Inversión</div>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">12 Dic 2025</span>
+              <span class="reading-time">3 min lectura</span>
+            </div>
+            <h3 class="news-title">Nuevas oportunidades de inversión en Montreal</h3>
+            <p class="news-excerpt">
+              El sector residencial montrealés presenta rentabilidades atractivas del 8-10% anual, 
+              convirtiéndose en destino preferido para inversores.
+            </p>
+            <a href="#" class="news-link">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Artículo 3 -->
+        <article class="news-card">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Construcción sostenible">
+            <div class="news-category category-sustainability">Sostenibilidad</div>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">10 Dic 2025</span>
+              <span class="reading-time">4 min lectura</span>
+            </div>
+            <h3 class="news-title">Construcción sostenible: el futuro de la inversión inmobiliaria</h3>
+            <p class="news-excerpt">
+              Los edificios con certificación energética A+ incrementan su valor un 15% y atraen 
+              mayor demanda de inquilinos conscientes del medio ambiente.
+            </p>
+            <a href="#" class="news-link">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Artículo 4 -->
+        <article class="news-card">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tecnología proptech">
+            <div class="news-category category-tech">Tecnología</div>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">8 Dic 2025</span>
+              <span class="reading-time">6 min lectura</span>
+            </div>
+            <h3 class="news-title">PropTech: cómo la tecnología revoluciona las inversiones</h3>
+            <p class="news-excerpt">
+              Plataformas digitales facilitan el acceso a inversiones fraccionadas, democratizando 
+              el mercado inmobiliario para pequeños inversores.
+            </p>
+            <a href="#" class="news-link">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Artículo 5 -->
+        <article class="news-card">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alquiler vacacional">
+            <div class="news-category category-rental">Alquiler</div>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">5 Dic 2025</span>
+              <span class="reading-time">4 min lectura</span>
+            </div>
+            <h3 class="news-title">Alquiler vacacional: rentabilidad del 20% en zonas turísticas</h3>
+            <p class="news-excerpt">
+              Las propiedades en destinos como Whistler y las Montañas Rocosas generan ingresos superiores 
+              al alquiler tradicional durante la temporada alta.
+            </p>
+            <a href="#" class="news-link">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Artículo 6 -->
+        <article class="news-card">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Regulación inmobiliaria">
+            <div class="news-category category-regulation">Regulación</div>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">3 Dic 2025</span>
+              <span class="reading-time">5 min lectura</span>
+            </div>
+            <h3 class="news-title">Nueva ley de vivienda: impacto en inversores inmobiliarios</h3>
+            <p class="news-excerpt">
+              Análisis de las modificaciones legislativas y sus efectos en la rentabilidad 
+              de las inversiones en el sector residencial canadiense.
+            </p>
+            <a href="#" class="news-link">Leer más</a>
+          </div>
+        </article>
+      </div>
+      
+      <div class="section-footer">
+        <a href="#" class="btn-secondary">Ver todas las noticias</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Testimonios -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Lo que dicen nuestros inversores</h2>
+        <p class="section-subtitle">Más de 1,500 inversores confían en nosotros para hacer crecer su patrimonio</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonio 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">💬</div>
+            <p class="testimonial-text">
+              "En solo 18 meses recuperé mi inversión inicial y ahora genero ingresos pasivos mensuales. 
+              La plataforma es transparente y el equipo muy profesional."
+            </p>
+            <div class="rating">
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+            </div>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Carlos Mendoza" class="author-photo">
+            <div class="author-info">
+              <h4 class="author-name">Carlos Mendoza</h4>
+              <p class="author-location">Toronto, Canadá</p>
+              <p class="author-investment">Invirtió $25,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">💬</div>
+            <p class="testimonial-text">
+              "Como madre soltera, necesitaba una inversión segura para el futuro de mi hija. 
+              Vigeo me ha dado la tranquilidad y rentabilidad que buscaba."
+            </p>
+            <div class="rating">
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+            </div>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Ana García" class="author-photo">
+            <div class="author-info">
+              <h4 class="author-name">Ana García</h4>
+              <p class="author-location">Vancouver, Canadá</p>
+              <p class="author-investment">Invirtió $8,500</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">💬</div>
+            <p class="testimonial-text">
+              "Después de años en bolsa con altibajos, encontré en el inmobiliario la estabilidad 
+              que necesitaba. Los retornos son consistentes y predecibles."
+            </p>
+            <div class="rating">
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+            </div>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Miguel Rodríguez" class="author-photo">
+            <div class="author-info">
+              <h4 class="author-name">Miguel Rodríguez</h4>
+              <p class="author-location">Montreal, Canadá</p>
+              <p class="author-investment">Invirtió $45,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 4 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">💬</div>
+            <p class="testimonial-text">
+              "Empecé con una pequeña inversión para probar. Los resultados me convencieron 
+              tanto que ahora tengo 5 propiedades en mi portafolio."
+            </p>
+            <div class="rating">
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+            </div>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Laura Martín" class="author-photo">
+            <div class="author-info">
+              <h4 class="author-name">Laura Martín</h4>
+              <p class="author-location">Calgary, Canadá</p>
+              <p class="author-investment">Invirtió $15,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 5 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">💬</div>
+            <p class="testimonial-text">
+              "La diversificación geográfica que ofrece la plataforma me permite invertir 
+              en diferentes mercados sin complicaciones. Excelente servicio al cliente."
+            </p>
+            <div class="rating">
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+            </div>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="David López" class="author-photo">
+            <div class="author-info">
+              <h4 class="author-name">David López</h4>
+              <p class="author-location">Ottawa, Canadá</p>
+              <p class="author-investment">Invirtió $32,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 6 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">💬</div>
+            <p class="testimonial-text">
+              "Como jubilado, buscaba generar ingresos adicionales sin riesgo. 
+              Esta plataforma me da exactamente eso: seguridad y rentabilidad."
+            </p>
+            <div class="rating">
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+              <span class="star">⭐</span>
+            </div>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Roberto Fernández" class="author-photo">
+            <div class="author-info">
+              <h4 class="author-name">Roberto Fernández</h4>
+              <p class="author-location">Quebec, Canadá</p>
+              <p class="author-investment">Invirtió $18,500</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonials-stats">
+        <div class="stat-item">
+          <span class="stat-number">4.9/5</span>
+          <span class="stat-label">Calificación promedio</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1,500+</span>
+          <span class="stat-label">Inversores satisfechos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Recomendarían Vigeo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Logo y descripción -->
+        <div class="footer-section footer-brand">
+          <div class="footer-logo">
+            <img src="/home/itac/Documentos/VIGEO/frontend/images/Logo.png" alt="Vigeo Urban Logo" class="footer-logo-img">
+          </div>
+          <p class="footer-description">
+            Democratizamos las inversiones inmobiliarias, ofreciendo oportunidades accesibles 
+            y rentables para todos los inversores.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Enlaces rápidos -->
+        <div class="footer-section">
+          <h3 class="footer-title">Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="#oportunidades">Oportunidades</a></li>
+            <li><a href="#">Cómo funciona</a></li>
+            <li><a href="#">Comunidad</a></li>
+            <li><a href="#">Promotores</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div class="footer-section">
+          <h3 class="footer-title">Contáctanos</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Calle Yonge 45, M5E 1G5 Toronto</span>
+            </div>
+            <div class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <span>+34 910 123 456</span>
+            </div>
+            <div class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <span>info@vigeourban.com</span>
+            </div>
+            <div class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              <span>Lunes - Viernes: 9:00 - 18:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-section">
+          <h3 class="footer-title">Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Política de Privacidad</a></li>
+            <li><a href="#">Política de Cookies</a></li>
+            <li><a href="#">Aviso Legal</a></li>
+            <li><a href="#">RGPD</a></li>
+            <li><a href="#">Resolución de conflictos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>&copy; 2025 Vigeo Urban. Todos los derechos reservados.</p>
+          <p class="footer-disclaimer">
+            Las inversiones inmobiliarias conllevan riesgos. El rendimiento pasado no garantiza resultados futuros.
+          </p>
+        </div>
+        <div class="footer-certifications">
+          <span class="certification">🔒 SSL Seguro</span>
+          <span class="certification">✅ CNMV Registrado</span>
+          <span class="certification">🏛️ Banco de Canadá</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/34910123456?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20las%20oportunidades%20de%20inversión%20inmobiliaria" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+    </svg>
+    <span class="whatsapp-tooltip">¿Necesitas ayuda?</span>
+  </a>
+
+  <main>
+    <!-- Contenido principal aquí -->
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>
