@@ -675,6 +675,386 @@ document.addEventListener('DOMContentLoaded', function() {
     // Actualizar estadísticas cada 30 segundos
     setInterval(updateReferralStats, 30000);
     
+    // ========== FUNCIONALIDAD DE BILLETERA ==========
+    
+    // Funcionalidad de botones de acción rápida
+    const depositBtn = document.getElementById('depositBtn');
+    const withdrawBtn = document.getElementById('withdrawBtn');
+    const transferBtn = document.getElementById('transferBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalContent = document.getElementById('modalContent');
+    
+    function showModal(content) {
+        modalContent.innerHTML = content;
+        modalOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function hideModal() {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    
+    // Modal de depósito
+    if (depositBtn) {
+        depositBtn.addEventListener('click', () => {
+            const depositModalContent = `
+                <h3 style="margin: 0 0 20px 0; color: #333;">Depositar Fondos</h3>
+                <form id="depositForm">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Método de Pago</label>
+                        <select style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                            <option>Tarjeta de Crédito ••••1234</option>
+                            <option>Cuenta Bancaria ••••7890</option>
+                            <option>Transferencia Bancaria</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Monto</label>
+                        <input type="number" placeholder="Ingresa el monto" min="100" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                    </div>
+                    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                        <button type="button" onclick="hideModal()" style="padding: 12px 24px; background: #f3f4f6; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
+                        <button type="submit" style="padding: 12px 24px; background: #20603d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Depositar</button>
+                    </div>
+                </form>
+            `;
+            showModal(depositModalContent);
+            
+            // Agregar funcionalidad al formulario
+            const depositForm = document.getElementById('depositForm');
+            depositForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                hideModal();
+                alert('Depósito procesado exitosamente!');
+            });
+        });
+    }
+    
+    // Modal de retiro
+    if (withdrawBtn) {
+        withdrawBtn.addEventListener('click', () => {
+            const withdrawModalContent = `
+                <h3 style="margin: 0 0 20px 0; color: #333;">Retirar Fondos</h3>
+                <form id="withdrawForm">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Cuenta de Destino</label>
+                        <select style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                            <option>Cuenta Bancaria ••••7890</option>
+                            <option>Tarjeta de Débito ••••5678</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Monto</label>
+                        <input type="number" placeholder="Ingresa el monto" max="8450" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                        <small style="color: #666; font-size: 0.8rem;">Disponible: $8,450.75</small>
+                    </div>
+                    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                        <button type="button" onclick="hideModal()" style="padding: 12px 24px; background: #f3f4f6; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
+                        <button type="submit" style="padding: 12px 24px; background: #dc2626; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Retirar</button>
+                    </div>
+                </form>
+            `;
+            showModal(withdrawModalContent);
+            
+            // Agregar funcionalidad al formulario
+            const withdrawForm = document.getElementById('withdrawForm');
+            withdrawForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                hideModal();
+                alert('Retiro procesado exitosamente!');
+            });
+        });
+    }
+    
+    // Modal de transferencia
+    if (transferBtn) {
+        transferBtn.addEventListener('click', () => {
+            const transferModalContent = `
+                <h3 style="margin: 0 0 20px 0; color: #333;">Transferir Fondos</h3>
+                <form id="transferForm">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Destinatario</label>
+                        <input type="email" placeholder="Email del destinatario" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Monto</label>
+                        <input type="number" placeholder="Ingresa el monto" max="8450" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Mensaje (Opcional)</label>
+                        <textarea placeholder="Mensaje para el destinatario" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; resize: vertical; height: 80px;"></textarea>
+                    </div>
+                    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                        <button type="button" onclick="hideModal()" style="padding: 12px 24px; background: #f3f4f6; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
+                        <button type="submit" style="padding: 12px 24px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Transferir</button>
+                    </div>
+                </form>
+            `;
+            showModal(transferModalContent);
+            
+            // Agregar funcionalidad al formulario
+            const transferForm = document.getElementById('transferForm');
+            transferForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                hideModal();
+                alert('Transferencia procesada exitosamente!');
+            });
+        });
+    }
+    
+    // Cerrar modal al hacer click fuera
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                hideModal();
+            }
+        });
+    }
+    
+    // Hacer la función hideModal global
+    window.hideModal = hideModal;
+    
+    // Filtro de transacciones
+    const transactionFilter = document.getElementById('transactionFilter');
+    if (transactionFilter) {
+        transactionFilter.addEventListener('change', (e) => {
+            const filterValue = e.target.value;
+            const transactionItems = document.querySelectorAll('.transaction-item');
+            
+            transactionItems.forEach(item => {
+                if (filterValue === 'all') {
+                    item.style.display = 'flex';
+                } else {
+                    const hasClass = item.classList.contains(filterValue);
+                    item.style.display = hasClass ? 'flex' : 'none';
+                }
+            });
+        });
+    }
+    
+    // Gráfico de evolución del balance
+    function initializeBalanceChart() {
+        const balanceCtx = document.getElementById('balanceChart');
+        if (balanceCtx && typeof Chart !== 'undefined' && !balanceCtx.chartInstance) {
+            const chartData = {
+                labels: ['1 Nov', '8 Nov', '15 Nov', '22 Nov', '29 Nov', '6 Dic', '13 Dic', '20 Dic'],
+                datasets: [{
+                    label: 'Balance ($)',
+                    data: [10200, 10850, 11200, 10900, 11500, 12100, 12300, 12450],
+                    borderColor: '#20603d',
+                    backgroundColor: 'rgba(32, 96, 61, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#20603d',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                }]
+            };
+            
+            balanceCtx.chartInstance = new Chart(balanceCtx, {
+                type: 'line',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 10000,
+                            max: 13000,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(0,0,0,0.1)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    }
+                }
+            });
+        }
+    }
+    
+    // Inicializar gráfico de balance con delay
+    setTimeout(initializeBalanceChart, 800);
+    
+    // Funcionalidad de ver todas las transacciones
+    const viewAllTransactions = document.getElementById('viewAllTransactions');
+    if (viewAllTransactions) {
+        viewAllTransactions.addEventListener('click', () => {
+            const allTransactionsModalContent = `
+                <h3 style="margin: 0 0 20px 0; color: #333;">Todas las Transacciones</h3>
+                <div style="max-height: 400px; overflow-y: auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                        <div>
+                            <strong>Depósito por Transferencia</strong><br>
+                            <small style="color: #666;">15 Dic 2024, 14:32</small>
+                        </div>
+                        <div style="text-align: right;">
+                            <strong style="color: #16a34a;">+$5,000.00</strong><br>
+                            <small style="color: #666;">Confirmado</small>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                        <div>
+                            <strong>Inversión - Apartamento Toronto</strong><br>
+                            <small style="color: #666;">12 Dic 2024, 09:15</small>
+                        </div>
+                        <div style="text-align: right;">
+                            <strong style="color: #dc2626;">-$2,500.00</strong><br>
+                            <small style="color: #666;">Confirmado</small>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                        <div>
+                            <strong>Comisión por Referido</strong><br>
+                            <small style="color: #666;">10 Dic 2024, 16:20</small>
+                        </div>
+                        <div style="text-align: right;">
+                            <strong style="color: #16a34a;">+$100.00</strong><br>
+                            <small style="color: #666;">Confirmado</small>
+                        </div>
+                    </div>
+                    <!-- Más transacciones... -->
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button onclick="hideModal()" style="padding: 12px 24px; background: #20603d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Cerrar</button>
+                </div>
+            `;
+            showModal(allTransactionsModalContent);
+        });
+    }
+    
+    // Funcionalidad de toggle en configuraciones
+    const settingToggles = document.querySelectorAll('.wallet-settings-card .setting-toggle input');
+    settingToggles.forEach(toggle => {
+        toggle.addEventListener('change', (e) => {
+            const settingItem = e.target.closest('.setting-item');
+            const settingName = settingItem.querySelector('.setting-name').textContent;
+            
+            // Efecto visual de confirmación
+            settingItem.style.background = 'rgba(32, 96, 61, 0.05)';
+            setTimeout(() => {
+                settingItem.style.background = '';
+            }, 500);
+            
+            console.log(`Configuración "${settingName}" ${e.target.checked ? 'activada' : 'desactivada'}`);
+        });
+    });
+    
+    // Funcionalidad de agregar método de pago
+    const addPaymentMethod = document.getElementById('addPaymentMethod');
+    if (addPaymentMethod) {
+        addPaymentMethod.addEventListener('click', () => {
+            const addMethodModalContent = `
+                <h3 style="margin: 0 0 20px 0; color: #333;">Agregar Método de Pago</h3>
+                <form id="addMethodForm">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Tipo de Método</label>
+                        <select id="methodType" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                            <option value="card">Tarjeta de Crédito/Débito</option>
+                            <option value="bank">Cuenta Bancaria</option>
+                        </select>
+                    </div>
+                    <div id="cardFields">
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Número de Tarjeta</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+                            <div style="flex: 1;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Vencimiento</label>
+                                <input type="text" placeholder="MM/AA" maxlength="5" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                            </div>
+                            <div style="flex: 1;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600;">CVV</label>
+                                <input type="text" placeholder="123" maxlength="4" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Nombre del Titular</label>
+                        <input type="text" placeholder="Nombre completo" style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px;">
+                    </div>
+                    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                        <button type="button" onclick="hideModal()" style="padding: 12px 24px; background: #f3f4f6; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
+                        <button type="submit" style="padding: 12px 24px; background: #20603d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Agregar Método</button>
+                    </div>
+                </form>
+            `;
+            showModal(addMethodModalContent);
+            
+            // Agregar funcionalidad al formulario
+            const addMethodForm = document.getElementById('addMethodForm');
+            addMethodForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                hideModal();
+                alert('Método de pago agregado exitosamente!');
+            });
+        });
+    }
+    
+    // Funcionalidad de acciones de métodos de pago
+    const paymentActionBtns = document.querySelectorAll('.payment-action-btn');
+    paymentActionBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isEdit = btn.classList.contains('edit');
+            const isDelete = btn.classList.contains('delete');
+            const paymentItem = btn.closest('.payment-method-item');
+            const paymentName = paymentItem.querySelector('.payment-name').textContent;
+            
+            if (isEdit) {
+                alert(`Editando ${paymentName}`);
+            } else if (isDelete) {
+                if (confirm(`¿Estás seguro de que quieres eliminar ${paymentName}?`)) {
+                    paymentItem.style.opacity = '0.5';
+                    setTimeout(() => {
+                        paymentItem.remove();
+                    }, 300);
+                }
+            }
+        });
+    });
+    
+    // Actualización en tiempo real del balance (simulado)
+    function updateWalletBalance() {
+        const balanceDisplay = document.querySelector('.balance-display-large');
+        if (balanceDisplay) {
+            const currentBalance = parseFloat(balanceDisplay.textContent.replace('$', '').replace(',', ''));
+            const change = (Math.random() - 0.5) * 50; // Cambio aleatorio pequeño
+            const newBalance = Math.max(0, currentBalance + change);
+            
+            balanceDisplay.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                balanceDisplay.textContent = `$${newBalance.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                balanceDisplay.style.transform = 'scale(1)';
+            }, 200);
+        }
+    }
+    
+    // Actualizar balance cada 45 segundos
+    setInterval(updateWalletBalance, 45000);
+    
     // Animaciones de entrada para las cards
     const observerOptions = {
         threshold: 0.1,
