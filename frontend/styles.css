@@ -457,16 +457,17 @@ main {
 .stat-number {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
-  color: #ecf0ec;
+  color: #ffffff !important;
   line-height: 1;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .stat-label {
   font-size: clamp(0.9rem, 2vw, 1.1rem);
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff !important;
   margin-top: 4px;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
 }
 
 /* Responsividad */
@@ -664,6 +665,7 @@ main {
   color: #20603d;
   margin-bottom: 16px;
   position: relative;
+  text-align: center;
 }
 
 .section-title::after {
@@ -2835,7 +2837,7 @@ main {
   border-bottom: 2px solid #f0f0f0;
 }
 
-.section-title {
+.opportunities-header .section-title {
   font-size: 2rem;
   font-weight: 700;
   color: #222;
@@ -2845,7 +2847,8 @@ main {
 .section-subtitle {
   font-size: 1.1rem;
   color: #666;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 .header-stats {
@@ -3096,19 +3099,6 @@ main {
 .opportunity-card.featured {
   border-color: #20603d;
   box-shadow: 0 6px 25px rgba(32, 96, 61, 0.15);
-}
-
-.card-badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: #20603d;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 2;
 }
 
 .card-image {
@@ -3645,11 +3635,12 @@ main {
 }
 
 /* Secciones de Contenido */
-.section-header {
+.account-section .section-header {
+  text-align: center;
   margin-bottom: 32px;
 }
 
-.section-title {
+.account-section .section-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: #222;
@@ -3658,8 +3649,9 @@ main {
 
 .section-subtitle {
   color: #666;
-  margin: 0;
+  margin: 0 auto;
   font-size: 1rem;
+  max-width: 600px;
 }
 
 /* Formularios Mejorados */
@@ -4523,7 +4515,7 @@ input:checked + .toggle-slider:before {
   border: 1px solid #f0f0f0;
 }
 
-.section-title {
+.tool-section .section-title {
   display: flex;
   align-items: center;
   gap: 10px;
